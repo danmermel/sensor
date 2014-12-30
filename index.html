@@ -1,0 +1,54 @@
+<!doctype html>
+ 
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>Demo</title>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+</head>
+
+<body>
+
+    <button onclick="goForward();">START</button>
+    <br>
+    <button onclick="stop();">STOP</button>
+
+
+    <script>
+
+     var goForward = function() {
+       console.log("Forward");
+       $.ajax({
+          url: "handler.rb",
+          type: "POST",
+          data: "direction=fwd", 
+          success: function(html){
+            console.log("Ajax returned "+html);
+          } 
+         });
+     }
+
+      var stop = function() {
+       console.log("stop");
+       $.ajax({
+          url: "handler.rb",
+          type: "POST",
+          data: "direction=stp", 
+          success: function(html){
+            console.log("Ajax returned "+html);
+          } 
+         });
+     }
+
+    </script>
+
+</body>
+
+</html>
